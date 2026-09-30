@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import { motion } from "framer-motion";
 import { hero } from "@/lib/content";
 
@@ -23,7 +23,7 @@ export default function HeroPortrait({
 
   return (
     <motion.div
-      className="relative z-[3] col-span-12 flex items-center justify-center px-6 md:col-span-6 md:px-4 xl:col-span-7 xl:px-6"
+      className="relative z-[3] flex min-h-[240px] flex-1 justify-center px-6 pt-6 md:col-span-6 md:col-start-7 md:row-span-4 md:row-start-1 md:items-center md:px-4 md:pt-0 xl:col-span-7 xl:col-start-6 xl:px-6"
       initial={runMotion ? { opacity: 0, y: 24 } : false}
       animate={{ opacity: 1, y: 0 }}
       transition={
@@ -42,14 +42,16 @@ export default function HeroPortrait({
       />
 
       <div
-        className="relative mx-auto w-full"
-        style={{
-          height: `${80 * size}vh`,
-          maxWidth: `${40 * size}rem`,
-        }}
+        className="relative mx-auto w-full md:h-[var(--portrait-h)]"
+        style={
+          {
+            "--portrait-h": `${80 * size}vh`,
+            maxWidth: `${40 * size}rem`,
+          } as CSSProperties
+        }
       >
         <div
-          className="relative h-full w-full"
+          className="absolute inset-0"
           style={{
             maskImage:
               "linear-gradient(to bottom, black 70%, transparent 100%)",
@@ -63,7 +65,7 @@ export default function HeroPortrait({
             fill
             priority
             sizes="(max-width: 768px) 100vw, 55vw"
-            className="object-contain object-center"
+            className="object-contain object-bottom md:object-center"
           />
         </div>
 

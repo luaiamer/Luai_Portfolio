@@ -25,7 +25,7 @@ export default function HeroIntro({ reduceMotion = false }: HeroIntroProps) {
 
   return (
     <motion.div
-      className="relative z-[4] col-span-12 flex flex-col justify-center px-6 pt-24 md:col-span-6 md:px-8 md:pt-0 xl:col-span-5 xl:px-10"
+      className="relative z-[4] flex flex-col px-6 pt-24 md:col-span-6 md:col-start-1 md:row-start-2 md:px-8 md:pt-0 xl:col-span-5 xl:px-10"
       variants={{
         hidden: {},
         show: {
@@ -85,44 +85,6 @@ export default function HeroIntro({ reduceMotion = false }: HeroIntroProps) {
         className="mt-5 text-justify text-base leading-relaxed text-text-muted md:text-lg"
       >
         {hero.description}
-      </motion.p>
-
-      <motion.div
-        variants={item}
-        transition={{ duration: 0.35 }}
-        className="mt-8 flex w-full flex-col gap-4 sm:flex-row sm:items-center"
-      >
-        <a
-          href={hero.primaryCta.href}
-          className="group inline-flex items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-black shadow-[0_0_30px_var(--accent-glow)] transition-[box-shadow,transform] hover:shadow-[0_0_45px_var(--accent-glow)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-        >
-          {hero.primaryCta.label}
-          <span
-            aria-hidden
-            className="inline-block transition-transform group-hover:translate-x-1"
-          >
-            →
-          </span>
-        </a>
-        <a
-          href={hero.secondaryCta.href}
-          download
-          className="inline-flex items-center justify-center rounded-full border border-line bg-bg-elevated px-7 py-3.5 text-sm font-semibold text-text transition-colors hover:border-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-        >
-          {hero.secondaryCta.label}
-        </a>
-      </motion.div>
-
-      <motion.p
-        variants={item}
-        transition={{ duration: 0.35 }}
-        className="mt-6 flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.15em] text-text-dim"
-      >
-        <span
-          className="inline-block h-2 w-2 rounded-full bg-accent animate-pulse-dot"
-          aria-hidden
-        />
-        {hero.location}
       </motion.p>
     </motion.div>
   );

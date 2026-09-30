@@ -26,7 +26,7 @@ export const hero = {
   engagementStatus: "AVAILABLE FOR ENGAGEMENTS",
   scrollHint: "SCROLL TO DECRYPT",
   primaryCta: { label: "View My Work", href: "#work" },
-  secondaryCta: { label: "Download Resume", href: "/Luai Amer-CV ATS.pdf" },
+  secondaryCta: { label: "Download Resume", href: "/Luai Amer-CV.pdf" },
   portrait: {
     src: "/images/DrinkShai.png",
     alt: "Portrait of LUAI AMIR",
@@ -93,6 +93,8 @@ export const certificates = {
   headline: "Certifications that prove the craft.",
   description:
     "Scroll or drag the wheel to flip through verified credentials. Each card is a credential earned in the field — not a participation badge.",
+  mobileDescription:
+    "Swipe to flip through verified credentials. Each card is a credential earned in the field — not a participation badge.",
   wheelLabel: " ",
   items: [
     {
@@ -100,7 +102,7 @@ export const certificates = {
         "Participated in Cybersecurity Industrial Talk: Your Next Move – From Graduation to Career.",
       date: "Apr 2026",
       image: "/images/certs/image.png",
-      href: "#certificates",
+      href: "https://www.linkedin.com/in/luai-amer-40ba612ab/details/certifications/",
     },
     {
       title: "CCNA: Introduction to Networks",
@@ -112,43 +114,43 @@ export const certificates = {
       title: "Participating in Webinar: FROM PHISHING TO AI-POWERED ATTACKS: THE CHANGING FACE OF CYBERCRIME",
       date: "Jun 2026",
       image: "/images/certs/8.jpg",
-      href: "#certificates",
+      href: "https://www.linkedin.com/in/luai-amer-40ba612ab/details/certifications/",
     },
     {
       title: "Hands-On Workshop: Aruba Instant AP (IAP) Configuration",
       date: "Jun 2026",
       image: "/images/certs/5.jpg",
-      href: "#certificates",
+      href: "https://www.linkedin.com/in/luai-amer-40ba612ab/details/certifications/",
     },
     {
       title: "Participating in Cybersecurity Industry Talk: AL RISK AND SECURITY MANAGEMENT",
       date: "May 2026",
       image: "/images/certs/4.jpg",
-      href: "#certificates",
+      href: "https://www.linkedin.com/in/luai-amer-40ba612ab/details/certifications/",
     },
     {
       title: "Participated in Breaking Into Cybersecurity : A Practical Guide For Fresh Graduates",
       date: "May 2026",
       image: "/images/certs/2.jpg",
-      href: "#certificates",
+      href: "https://www.linkedin.com/in/luai-amer-40ba612ab/details/certifications/",
     },
     {
       title: "Participated in Webinar Introduction to Digital Forensics.",
       date: "May 2026",
       image: "/images/certs/3.jpg",
-      href: "#certificates",
+      href: "https://www.linkedin.com/in/luai-amer-40ba612ab/details/certifications/",
     },
     {
       title: "Participating in Cybersecurity Industry Talk: Penetration Testing Methodologies",
       date: "Jun 2026",
       image: "/images/certs/6.jpg",
-      href: "#certificates",
+      href: "https://www.linkedin.com/in/luai-amer-40ba612ab/details/certifications/",
     },
     {
       title: "Participating in industrial talk: INSIDE THE WORLD OF SECURITY OPERATIONS CENTER SOC",
       date: "Jun 2026",
       image: "/images/certs/7.jpg",
-      href: "#certificates",
+      href: "https://www.linkedin.com/in/luai-amer-40ba612ab/details/certifications/",
     },
   ],
 };
@@ -212,7 +214,13 @@ export const techStack = {
     { name: "TypeScript", icon: "typescript", color: "3178C6" },
     { name: "Python", icon: "python", color: "3776AB" },
     { name: "Java", icon: "openjdk", color: "437291" },
-    { name: "C#", icon: "csharp", color: "512BD4" },
+    {
+      name: "C#",
+      icon: "csharp",
+      color: "512BD4",
+      // Simple Icons removed C# (trademark), so pull it from Devicon instead.
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+    },
     { name: "PHP", icon: "php", color: "777BB4" },
     { name: "SQL", icon: "mysql", color: "4479A1" },
     { name: "Bash", icon: "gnubash", color: "4EAA25" },
@@ -271,11 +279,6 @@ export const contact = {
 export const nav = [
   { label: "About", href: "#about" },
   { label: "Certs", href: "#certificates" },
-  { label: "Expertise", href: "#expertise" },
   { label: "Work", href: "#work" },
   { label: "Arsenal", href: "#arsenal" },
 ];
-
-export const sections = [
-  { id: "expertise", label: "Expertise" },
-] as const;

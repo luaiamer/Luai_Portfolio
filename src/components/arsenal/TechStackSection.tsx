@@ -17,7 +17,9 @@ function TechChip({ item }: { item: TechItem }) {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={`https://cdn.simpleicons.org/${item.icon}/${item.color}`}
+        src={
+          item.src ?? `https://cdn.simpleicons.org/${item.icon}/${item.color}`
+        }
         alt=""
         width={22}
         height={22}

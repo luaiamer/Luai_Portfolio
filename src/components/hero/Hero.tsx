@@ -6,6 +6,7 @@ import MatrixRain from "./MatrixRain";
 import GridOverlay from "./GridOverlay";
 import HeroIntro from "./HeroIntro";
 import HeroPortrait from "./HeroPortrait";
+import HeroActions from "./HeroActions";
 import HeroMetrics from "./HeroMetrics";
 
 export default function Hero() {
@@ -24,7 +25,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-bg">
+    <section className="relative min-h-svh overflow-hidden bg-bg">
       <div className="absolute inset-0 z-0">
         <MatrixRain
           speed={matrix.speed}
@@ -43,16 +44,17 @@ export default function Hero() {
         <div className="absolute bottom-[10%] left-1/2 h-[40vh] w-[40vw] -translate-x-1/2 rounded-full bg-accent-2/10 blur-[100px]" />
       </div>
 
-      <div className="relative z-[3] mx-auto grid min-h-screen max-w-[1440px] grid-cols-12 items-center">
+      <div className="relative z-[3] mx-auto flex min-h-svh max-w-[1440px] flex-col md:grid md:grid-cols-12 md:grid-rows-[1fr_auto_auto_1fr]">
         <HeroIntro reduceMotion={reduceMotion} />
         <HeroPortrait reduceMotion={reduceMotion} />
+        <HeroActions reduceMotion={reduceMotion} />
         {/* <HeroMetrics reduceMotion={reduceMotion} /> */}
       </div>
 
       <button
         type="button"
         onClick={scrollNext}
-        className="absolute bottom-8 left-6 z-[4] flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.15em] text-text-dim transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:left-8 xl:left-10"
+        className="absolute bottom-8 left-6 z-[4] hidden items-center md:flex gap-3 font-mono text-[11px] uppercase tracking-[0.15em] text-text-dim transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:left-8 xl:left-10"
       >
         <span className="inline-block h-px w-8 bg-current" aria-hidden />
         {hero.scrollHint}

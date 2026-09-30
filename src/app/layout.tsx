@@ -38,9 +38,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "LUAI AMIR— Ethical Hacker & Offensive Security",
+  title: "LUAI AMIR Official Portfolio",
   description:
-    "Portfolio of an ethical hacker and offensive security engineer. Penetration testing, CVE research, and security engagements.",
+    "Portfolio of an information security student. Penetration testing, CVE research, and security engagements.",
 };
 
 export default function RootLayout({

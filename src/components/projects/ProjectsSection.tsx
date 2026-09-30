@@ -3,6 +3,11 @@
 import type { CSSProperties } from "react";
 import { projects } from "@/lib/content";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import {
+  CarouselDots,
+  snapTrackClass,
+  useSnapCarousel,
+} from "@/components/ui/snap-carousel";
 
 const accentClass = {
   accent: "text-accent",
@@ -11,9 +16,13 @@ const accentClass = {
 
 /**
  * Two-column projects: sticky intro on the left, scrolling cards on the right.
+ * Below lg the cards become a horizontal snap carousel instead.
  * Sticky uses inline styles — Tailwind sticky utilities are unreliable here.
  */
 export default function ProjectsSection() {
+  const { trackRef, active, onScroll, scrollTo } =
+    useSnapCarousel<HTMLUListElement>();
+
   return (
     <section
       id="work"
@@ -23,7 +32,7 @@ export default function ProjectsSection() {
       <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-12 px-6 py-16 md:gap-16 md:px-8 md:py-24 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] xl:gap-20 xl:px-10">
         {/* Left — sticky title block */}
         <div
-          className="self-start"
+          className="self-start max-lg:static!"
           style={
             {
               position: "sticky",
@@ -65,17 +74,25 @@ export default function ProjectsSection() {
           {/* Timeline rail */}
           <div
             aria-hidden
-            className="pointer-events-none absolute top-0 bottom-0 w-px bg-line"
+            className="pointer-events-none absolute top-0 bottom-0 w-px bg-line max-lg:hidden"
             style={{ left: "1.15rem" }}
           />
 
-          <ul className="flex flex-col gap-5 md:gap-6">
+          <ul
+            ref={trackRef}
+            onScroll={onScroll}
+            aria-label="Projects carousel"
+            className={`relative flex gap-4 lg:flex-col lg:gap-6 ${snapTrackClass}`}
+          >
             {projects.items.map((item, index) => (
-              <li key={item.number} className="relative pl-8 sm:pl-10">
+              <li
+                key={item.number}
+                className="relative max-lg:w-[85%] max-lg:shrink-0 max-lg:snap-start md:max-lg:w-[70%] lg:pl-10"
+              >
                 {/* Timeline node */}
                 <span
                   aria-hidden
-                  className="absolute top-8 left-[1.15rem] z-10 size-2.5 -translate-x-1/2 rounded-full bg-accent"
+                  className="absolute top-8 left-[1.15rem] z-10 size-2.5 -translate-x-1/2 rounded-full bg-accent max-lg:hidden"
                   style={{
                     boxShadow: "0 0 12px var(--accent-glow)",
                     opacity:
@@ -86,6 +103,7 @@ export default function ProjectsSection() {
                 />
 
                 <article
+                  className="max-lg:h-full max-lg:p-5!"
                   style={{
                     borderRadius: "0.75rem",
                     border: "1px solid var(--line)",
@@ -119,6 +137,14 @@ export default function ProjectsSection() {
               </li>
             ))}
           </ul>
+
+          <CarouselDots
+            count={projects.items.length}
+            active={active}
+            onSelect={scrollTo}
+            label="project"
+            className="mt-6 lg:hidden"
+          />
         </div>
       </div>
     </section>
