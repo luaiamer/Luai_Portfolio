@@ -28,7 +28,7 @@ export const hero = {
   primaryCta: { label: "View My Work", href: "#work" },
   secondaryCta: { label: "Download Resume", href: "/Luai Amer-CV.pdf" },
   portrait: {
-    src: "/images/DrinkShai.png",
+    src: "/images/Luai.jpeg",
     alt: "Portrait of LUAI AMIR",
     /** Size multiplier — 1 = default, try 0.7–1.4 */
     size: 1,
